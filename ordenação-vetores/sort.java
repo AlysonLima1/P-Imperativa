@@ -23,6 +23,13 @@ public class sort {
         System.out.println("Vetor original: " + Arrays.toString(vetor3));
         selectionSortDescending(vetor3);
         System.out.println("Vetor ordenado em ordem decrescente: " + Arrays.toString(vetor3));
+
+        // Questão 4 - Insertion Sort em ordem decrescente
+        int[] vetor4 = {34, 8, 64, 51, 32, 21, 4, 12, 67, 19, 78, 45, 34, 88, 29, 57, 83, 92, 6, 11};
+        System.out.println("\nQuestão 4 - Insertion Sort em ordem decrescente");
+        System.out.println("Vetor original: " + Arrays.toString(vetor4));
+        insertionSortDescending(vetor4);
+        System.out.println("Vetor ordenado em ordem decrescente: " + Arrays.toString(vetor4));
     }
 
     public static void selectionSort(int[] vetor2) {
@@ -43,7 +50,7 @@ public class sort {
     }
 
      // Questão 2 - Insertion Sort em ordem crescente
-     public static void insertionSort(int[] vetor) {
+    public static void insertionSort(int[] vetor) {
         int n = vetor.length;
         for (int i = 1; i < n; i++) {
             int chave = vetor[i];
@@ -57,7 +64,7 @@ public class sort {
     }
 
       // Questão 3 - Selection Sort em ordem decrescente
-      public static void selectionSortDescending(int[] vetor) {
+    public static void selectionSortDescending(int[] vetor) {
         int n = vetor.length;
         for (int i = 0; i < n - 1; i++) {
             int indiceMaior = i;
@@ -71,6 +78,20 @@ public class sort {
                 vetor[i] = vetor[indiceMaior];
                 vetor[indiceMaior] = temp;
             }
+        }
+    }
+    
+    // Questão 4 - Insertion Sort em ordem decrescente
+    public static void insertionSortDescending(int[] vetor) {
+        int n = vetor.length;
+        for (int i = 1; i < n; i++) {
+            int chave = vetor[i];
+            int j = i - 1;
+            while (j >= 0 && vetor[j] < chave) {
+                vetor[j + 1] = vetor[j];
+                j = j - 1;
+            }
+            vetor[j + 1] = chave;
         }
     }
 }
