@@ -30,6 +30,25 @@ public class sort {
         System.out.println("Vetor original: " + Arrays.toString(vetor4));
         insertionSortDescending(vetor4);
         System.out.println("Vetor ordenado em ordem decrescente: " + Arrays.toString(vetor4));
+
+        // Questão 5 - Medindo o Tempo de Execução
+
+        int[] vetorTeste = new int[1000];
+        // Preencher o vetor com valores aleatórios
+        for (int i = 0; i < vetorTeste.length; i++) {
+            vetorTeste[i] = (int)(Math.random() * 1000);
+        }
+
+        long startTime = System.nanoTime();
+        selectionSort(vetorTeste.clone());
+        long endTime = System.nanoTime();
+        System.out.println("Tempo de execução do Selection Sort: " + (endTime - startTime) + " ns");
+
+        startTime = System.nanoTime();
+        insertionSort(vetorTeste.clone());
+        endTime = System.nanoTime();
+        System.out.println("Tempo de execução do Insertion Sort: " + (endTime - startTime) + " ns");
+        
     }
 
     public static void selectionSort(int[] vetor2) {
